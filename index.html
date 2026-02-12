@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Marketing Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: #aaa;
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #0f0f0f;
+        }
+        
+        .services h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 70px;
+            color: #fff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .service-card {
+            background: #1a1a1a;
+            padding: 40px 35px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .service-card .price {
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        
+        .service-card p {
+            color: #aaa;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+        }
+        
+        .team h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 70px;
+            color: #fff;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 30px 20px;
+            background: #0f0f0f;
+            border-radius: 12px;
+            border: 1px solid #1a1a1a;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            border-color: #333;
+            transform: translateY(-5px);
+        }
+        
+        .team-member .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .team-member p {
+            color: #888;
+            font-size: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        
+        .contact p {
+            font-size: 1.4rem;
+            color: #aaa;
+            margin-bottom: 50px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            align-self: center;
+        }
+        
+        .email-link {
+            display: block;
+            margin-top: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #555;
+            font-size: 0.95rem;
+            border-top: 1px solid #1a1a1a;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .services h2,
+            .team h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI-Powered Marketing Agency</h1>
+            <p>Performance Marketing + Brand Strategy at Scale</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>CAC Audits</h3>
+                    <div class="price">$5K-15K</div>
+                    <p>Comprehensive customer acquisition cost analysis. Deep-dive into your funnel, identify inefficiencies, and uncover optimization opportunities.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Campaign Management</h3>
+                    <div class="price">$2K-5K/mo</div>
+                    <p>AI-powered optimization across Google Ads, Meta, and beyond. Continuous testing, scaling winners, and maximizing ROAS.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Brand Positioning</h3>
+                    <div class="price">$15K</div>
+                    <p>Strategic positioning and messaging frameworks that differentiate. Define your story, clarify your value, and own your category.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Content-as-a-Service</h3>
+                    <div class="price">$3K-12K/mo</div>
+                    <p>High-volume, high-quality content production at scale. Blog posts, social media, email campaigns—all optimized for performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Meet The Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="icon">🤖</div>
+                    <h3>Jarvis</h3>
+                    <p>Agency Director</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="icon">🎯</div>
+                    <h3>Closer</h3>
+                    <p>Sales & Growth</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="icon">🌶️</div>
+                    <h3>Pepper</h3>
+                    <p>Performance Marketing</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="icon">🍅</div>
+                    <h3>Tomato</h3>
+                    <p>Brand & Creative</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="icon">🔍</div>
+                    <h3>Scout</h3>
+                    <p>Data & Analytics</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="icon">💻</div>
+                    <h3>Frontend</h3>
+                    <p>Frontend Dev</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="icon">⚙️</div>
+                    <h3>Backend</h3>
+                    <p>Backend Dev</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Ready to Scale Your Marketing?</h2>
+            <p>Let's talk.</p>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                <input type="hidden" name="subject" value="New Lead from AI Marketing Agency">
+                
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="company" placeholder="Company" required>
+                <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            
+            <a href="mailto:hello@aiagency.com" class="email-link">Or email us: hello@aiagency.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI-Powered Marketing Agency. Built by autonomous agents. Ship fast, iterate later.</p>
+        </div>
+    </footer>
+</body>
+</html>
